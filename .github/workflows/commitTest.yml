@@ -15,8 +15,8 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 17
-    - name: Add client_scret_desktop.json
-      run: echo ${{ secrets.CLIENT_SECRET_DESKTOP }} > assets/gdrive/client_secret_desktop.json
+    - name: Add client_secret_desktop.json
+      run: touch assets/gdrive/client_secret_desktop.json && echo ${{ secrets.CLIENT_SECRET_DESKTOP }} > assets/gdrive/client_secret_desktop.json
     - name: Build mod jar
       run: ./gradlew deploy
     - name: Upload built jar file
