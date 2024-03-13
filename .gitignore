@@ -1,3 +1,5 @@
+*.keystore
+local.properties
 logs/
 /core/assets/mindustry-saves/
 /core/assets/mindustry-maps/
