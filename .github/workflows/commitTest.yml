@@ -18,9 +18,7 @@ jobs:
     - name: Add client_secret_desktop.json
       run: mkdir assets/gdrive && echo ${{ secrets.CLIENT_SECRET_DESKTOP }} > assets/gdrive/client_secret_desktop.json
     - name: Build mod jar
-      run: |
-        echo "VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-        ./gradlew deploy
+      run: ./gradlew deploy
     - name: Upload built jar file
       uses: actions/upload-artifact@v2
       with:
@@ -31,4 +29,4 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: build/libs/${{ github.event.repository.name }}.jar
-        tag: ${{ github.ref }}
+        tag: ${{ github.run_number }}
